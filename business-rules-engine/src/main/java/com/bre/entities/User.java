@@ -6,6 +6,8 @@ public class User {
 
 	private final String email;
 
+	private MembershipType membershipType;
+
 	public User(String name, String email) {
 		super();
 		this.name = name;
@@ -18,6 +20,14 @@ public class User {
 
 	public String getEmail() {
 		return email;
+	}
+
+	public MembershipType getMembershipType() {
+		return membershipType;
+	}
+
+	public void setMembershipType(MembershipType membershipType) {
+		this.membershipType = membershipType;
 	}
 
 	@Override
@@ -57,5 +67,5 @@ public class User {
 	public String toString() {
 		return "User [name=" + name + ", email=" + email + "]";
 	}
-	
+
 }
