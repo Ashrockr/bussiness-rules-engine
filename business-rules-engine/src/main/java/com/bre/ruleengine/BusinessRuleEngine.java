@@ -1,8 +1,11 @@
 package com.bre.ruleengine;
 
+import java.util.Arrays;
 import java.util.List;
 
 import com.bre.entities.Payment;
+import com.bre.rule.BookProductRule;
+import com.bre.rule.PhysicalProductRule;
 import com.bre.rule.Rule;
 import com.bre.service.MembershipService;
 import com.bre.service.ShippingService;
@@ -20,8 +23,9 @@ public class BusinessRuleEngine {
 	}
 
 	private List<Rule> initializeAndGetRuleBase() {
-		// TODO Auto-generated method stub
-		return null;
+		Rule bookRule = new BookProductRule(shippingService);
+		Rule productRule = new PhysicalProductRule(shippingService);
+		return Arrays.asList(bookRule, productRule);
 	}
 
 	public void process(Payment payment) {
